@@ -11,9 +11,9 @@
 ### Usage
 
 1. After you longin on your VPS , with this command you will download masternode-installer.   
-`wget -q https://raw.githubusercontent.com/blockidchain/MN-Install-Script/master/masternode-install.sh`  
+`wget -q https://raw.githubusercontent.com/Encocoin/xnk-mn-install/master/masternode-install.sh`  
 - For Ubuntu 18.04 + use this one command   
-`wget -q https://raw.githubusercontent.com/blockidchain/MN-Install-Script/master/mastenode-install-ubuntu-0.18.sh` 
+`wget -q https://raw.githubusercontent.com/Encocoin/xnk-mn-install/master/mastenode-install-ubuntu-0.18.sh` 
 
 2. With this command you will make masternode-install.sh executable.  
 `sudo chmod +x masternode-install.sh` <br>
