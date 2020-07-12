@@ -1,17 +1,17 @@
 #!/bin/bash
 
 TMP_FOLDER=$(mktemp -d)
-CONFIG_FILE='encocoin.conf'
-CONFIGFOLDER='/root/.encocoin'
-COIN_DAEMON='encocoind'
-COIN_CLI='encocoin-cli'
+CONFIG_FILE='epgc.conf'
+CONFIGFOLDER='/root/.epgc'
+COIN_DAEMON='epgcd'
+COIN_CLI='epgc-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://github.com/Encocoin/xnk/releases/download/v3.0.0/encocoin-v3.0.0-linux.tar.gz'
+COIN_TGZ='https://github.com/Encocoin/encocoinplus/releases/download/3.0.4/epgc-3.0.4-i686-pc-linux-gnu.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
-COIN_NAME='encocoind'
-COIN_EXPLORER='http://explorer.encocoin.com'
-COIN_PORT=43013
-RPC_PORT=43014
+COIN_NAME='epgcd'
+COIN_EXPLORER='http://epgexplorer.encocoin.net'
+COIN_PORT=29442
+RPC_PORT=29443
 
 NODEIP=$(curl -s4 icanhazip.com)
 

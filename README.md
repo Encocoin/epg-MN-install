@@ -2,18 +2,18 @@
 
 ### Required:
 
-1. XNK Coins for Collateral
+1. EPG Coins for Collateral
 
-2. Download your Local Wallet: https://github.com/encocoin/xnk/releases
+2. Download your Local Wallet: https://github.com/Encocoin/encocoinplus/releases
 
 3. You will need also VPS with Ubuntu 16.04, 18.04 , 19.04
 
 ### Usage
 
 1. After you longin on your VPS , with this command you will download masternode-installer.   
-`wget -q https://raw.githubusercontent.com/Encocoin/xnk-mn-install/master/masternode-install.sh`  
+`wget -q https://raw.githubusercontent.com/Encocoin/epg-MN-install/master/masternode-install.sh`  
 - For Ubuntu 18.04 + use this one command   
-`wget -q https://raw.githubusercontent.com/Encocoin/xnk-mn-install/master/masternode-install-ubuntu-0.18.sh` 
+`wget -q https://raw.githubusercontent.com/Encocoin/epg-MN-install/master/masternode-install-ubuntu-0.18.sh` 
 
 2. With this command you will make masternode-install.sh executable.  
 `sudo chmod +x masternode-install.sh` <br>
