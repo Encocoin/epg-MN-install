@@ -10,13 +10,8 @@
 
 ### Usage
 
-1. After you longin on your VPS , with this command you will download masternode-installer.   
-`wget -q https://raw.githubusercontent.com/Encocoin/epg-MN-install/master/masternode-install.sh`  
-- For Ubuntu 18.04 + use this one command   
-`wget -q https://raw.githubusercontent.com/Encocoin/epg-MN-install/master/masternode-install-ubuntu-0.18.sh` 
+1. After you long into your VPS, start the installation using following command:
+`source <(curl -s https://raw.githubusercontent.com/Encocoin/epg-MN-install/master/masternode-install-ubuntu-0.18.sh)`
 
-2. With this command you will make masternode-install.sh executable.  
-`sudo chmod +x masternode-install.sh` <br>
-
-3. Now install your masternode.  
-`./masternode-install.sh`
+- For systems *older* than Ubuntu 18.04 please run:
+`source <(curl -s https://raw.githubusercontent.com/Encocoin/epg-MN-install/master/masternode-install.sh)` 
