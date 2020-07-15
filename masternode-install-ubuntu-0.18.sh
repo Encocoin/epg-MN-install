@@ -6,7 +6,7 @@ CONFIGFOLDER='/root/.epgc'
 COIN_DAEMON='epgcd'
 COIN_CLI='epgc-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://github.com/Encocoin/encocoinplus/releases/download/3.0.4/epgc-3.0.4-i686-pc-linux-gnu.tar.gz'
+COIN_TGZ='https://github.com/Encocoin/encocoinplus/releases/download/3.0.5/epgc-3.0.5-aarch64-linux-gnu.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='epgcd'
 COIN_EXPLORER='http://epgexplorer.encocoin.net'
@@ -24,7 +24,7 @@ GREEN="\033[0;32m"
 NC='\033[0m'
 MAG='\e[1;35m'
 
-purgeOldInstallation() {
+function purgeOldInstallation() {
     echo -e "${GREEN}Searching and removing old $COIN_NAME files and configurations${NC}"
     #kill wallet daemon
   sudo killall $COIN_DAEMON > /dev/null 2>&1
@@ -36,6 +36,13 @@ purgeOldInstallation() {
     #remove binaries and $COIN_NAME utilities
     cd /usr/local/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
     echo -e "${GREEN}* Done${NONE}";
+}
+
+function stop_old_daemon {
+        $COIN_CLI stop > /dev/null 2>&1
+        systemctl stop $COIN_NAME > /dev/null 2>&1
+        killall $COIN_DAEMON > /dev/null 2>&1
+        sleep 5 # wait till it's really stopped
 }
 
 function install_sentinel() {
@@ -277,12 +284,20 @@ function setup_node() {
   configure_systemd
 }
 
+function post_update_node() {
+  echo "Update only - remove masternode key if you wish complete reinstall"
+  echo "Restarting the service ..."
+  systemctl restart $COIN_NAME.service
+  important_information
+}
 
 ##### Main #####
 clear
 
-purgeOldInstallation
+echo "Preparing installator ..."
+#purgeOldInstallation	# don't rm -rf ~/.epgc
+stop_old_daemon
 checks
-prepare_system
+#prepare_system		# only needed for compilation, not binary install
 download_node
-setup_node
+grep "masternodeprivkey" $CONFIGFOLDER/$CONFIG_FILE > /dev/null && post_update_node || setup_node
