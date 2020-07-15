@@ -257,6 +257,7 @@ function important_information() {
  echo -e "${BLUE}================================================================================================================================${NC}"
  echo -e "${BLUE}================================================================================================================================${NC}"
  echo -e "$COIN_NAME Masternode is up and running listening on port ${GREEN}$COIN_PORT${NC}."
+ echo -e "Installed version: ${GREEN}" $(epgcd -version | grep "version v") "${NC}"
  echo -e "Configuration file is: ${RED}$CONFIGFOLDER/$CONFIG_FILE${NC}"
  echo -e "Start: ${RED}systemctl start $COIN_NAME.service${NC}"
  echo -e "Stop: ${RED}systemctl stop $COIN_NAME.service${NC}"
